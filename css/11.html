@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Smart Stopwatch</title>
+        <style>
+            body {
+                text-align : center;
+                margin : 200px;
+                background-color: rgb(88, 105, 99);
+            }
+            #time {
+                color : bisque;
+                font-size : 50px;
+            }
+            button:hover {
+                background-color:blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Welcome to Smart Stopwatch</h2>
+        <h1 id="time">0</h1>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Pause</button>
+        <button onclick="reset()">Reset</button>
+        <script>
+            let seconds=0;
+            let timer;
+            function start() {
+                timer=setInterval(updateTime,1000);
+            }
+            function updateTime() {
+                seconds++;
+                document.getElementById("time").innerHTML=seconds;
+            }
+            function stop() {
+                clearInterval(timer);
+            }
+            function reset() {
+                clearInterval(timer);
+                seconds=0;
+                document.getElementById("time").innerHTML=seconds;
+            }
+        </script>
+    </body>
+</html>
